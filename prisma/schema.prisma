@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum Language {
+  en
+  hi
+  mr
+  bn
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  phone        String   @unique
+  passwordHash String
+  language     Language
+  role         UserRole @default(USER)
+  createdAt    DateTime @default(now())
+
+  eligibilityResponses EligibilityResponse[]
+  conversations        Conversation[]
+}
+
+model Scheme {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  description      String
+  eligibility      String
+  benefits         String
+  documents        String[]
+  applicationProcess String
+  officialLink     String
+  stateAvailability String[]
+  category         String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model EligibilityResponse {
+  id            String   @id @default(cuid())
+  user          User?    @relation(fields: [userId], references: [id])
+  userId        String?
+  answers       Json
+  matchedSchemes Json
+  createdAt     DateTime @default(now())
+}
+
+model Conversation {
+  id        String   @id @default(cuid())
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  language  String
+  messages  Json
+  createdAt DateTime @default(now())
+}
+
+enum AnalyticsEventType {
+  USER_REGISTERED
+  CHAT_MESSAGE
+  ELIGIBILITY_CHECK
+  SCHEME_VIEW
+  DOC_CHECKLIST_DOWNLOAD
+  ADMIN_LOGIN
+}
+
+model Analytics {
+  id        String              @id @default(cuid())
+  eventType AnalyticsEventType
+  metadata  Json
+  createdAt DateTime @default(now())
+}
+
+model ImpactProjection {
+  id                         String   @id @default(cuid())
+  district                   String
+  households                 Int
+  currentAwareness           Float
+  postAwareness              Float
+  additionalBeneficiaries    Int
+  avgBenefitPerBeneficiary   Int
+  estimatedEconomicImpact    Int
+  assumptions                Json
+  createdAt                  DateTime @default(now())
+}
