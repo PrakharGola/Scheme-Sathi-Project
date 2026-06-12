@@ -1,4 +1,5 @@
 import { prisma } from "../../config/db";
+import { filterSampleSchemes, sampleSchemes } from "../../data/sampleSchemes";
 
 export async function listSchemes(query: {
   search?: string;
@@ -21,11 +22,15 @@ export async function listSchemes(query: {
     };
   }
 
-  return prisma.scheme.findMany({ where, orderBy: { name: "asc" } });
+  return prisma.scheme.findMany({ where, orderBy: { name: "asc" } }).catch(() =>
+    filterSampleSchemes(query)
+  );
 }
 
 export async function getScheme(id: string) {
-  const scheme = await prisma.scheme.findUnique({ where: { id } });
+  const scheme =
+    (await prisma.scheme.findUnique({ where: { id } }).catch(() => null)) ||
+    sampleSchemes.find((item) => item.id === id || item.slug === id);
   if (!scheme) throw { status: 404, message: "Scheme not found" };
   return scheme;
 }

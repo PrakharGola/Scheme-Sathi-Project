@@ -1,6 +1,6 @@
 import { prisma } from "../config/db";
+import { sampleSchemes } from "../data/sampleSchemes";
 import { detectLanguageFromText } from "./languageDetector";
-import { env } from "../config/env";
 
 // TODO: Replace this stub with real Gemini + embeddings.
 // For now, we will just pick a few schemes and respond deterministically.
@@ -16,7 +16,7 @@ export async function chatWithSchemes(params: {
   const schemes = await prisma.scheme.findMany({
     take: 3,
     orderBy: { name: "asc" }
-  });
+  }).catch(() => sampleSchemes.slice(0, 3));
 
   // Simple rule-based answer:
   let reply: string;
