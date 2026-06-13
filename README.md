@@ -9,7 +9,7 @@ Built for **NSS Open Projects 2026 – Track 1: AI & Intelligent Solutions**, Sc
 ---
 ## 🚀 Live Demo
 
-👉 [Try SchemeSathi](https://your-live-demo-link.com)
+👉 https://scheme-sathi-project--prakharg11.replit.app/
 ---
 ## Problem Statement
 
