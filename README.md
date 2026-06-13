@@ -7,7 +7,10 @@ SchemeSathi is an AI-driven welfare assistance platform designed to bridge the i
 Built for **NSS Open Projects 2026 – Track 1: AI & Intelligent Solutions**, SchemeSathi helps users discover relevant welfare schemes, check eligibility, understand required documentation, and receive multilingual guidance through an intelligent conversational assistant.
 
 ---
+## 🚀 Live Demo
 
+👉 [Try SchemeSathi](https://your-live-demo-link.com)
+---
 ## Problem Statement
 
 India offers hundreds of welfare schemes covering healthcare, agriculture, housing, education, women empowerment, and financial inclusion. However, a large percentage of eligible beneficiaries remain unaware of these opportunities due to:
