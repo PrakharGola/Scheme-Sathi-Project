@@ -1,298 +1,210 @@
 # 🚀 SchemeSathi
 
-> AI-Powered Multilingual Welfare Scheme Discovery Platform
+### AI-Powered Multilingual Welfare Scheme Discovery & Eligibility Assistant
 
-SchemeSathi is an intelligent welfare assistance platform that helps citizens discover, understand, and access government welfare schemes through a multilingual AI chatbot, eligibility checker, and personalized recommendations.
+SchemeSathi is an AI-driven welfare assistance platform designed to bridge the information gap between Indian citizens and government welfare schemes.
 
-Built for the **NSS Open Projects 2026 – AI & Intelligent Systems Track**, SchemeSathi bridges the awareness gap between citizens and government welfare programs using AI, multilingual support, and simplified eligibility assessment.
+Built for **NSS Open Projects 2026 – Track 1: AI & Intelligent Solutions**, SchemeSathi helps users discover relevant welfare schemes, check eligibility, understand required documentation, and receive multilingual guidance through an intelligent conversational assistant.
 
 ---
 
-## 🌟 Problem Statement
+## Problem Statement
 
-Millions of citizens remain unaware of welfare schemes they are eligible for due to:
+India offers hundreds of welfare schemes covering healthcare, agriculture, housing, education, women empowerment, and financial inclusion. However, a large percentage of eligible beneficiaries remain unaware of these opportunities due to:
 
 * Language barriers
+* Limited digital literacy
 * Complex eligibility criteria
-* Lack of digital literacy
 * Fragmented information sources
-* Difficult application processes
+* Difficult application procedures
 
-SchemeSathi addresses these challenges through an accessible and intelligent digital assistant.
+SchemeSathi simplifies access through AI-powered conversations, personalized recommendations, multilingual support, and eligibility assessment.
 
 ---
 
-## ✨ Key Features
+## Key Objectives
 
-### 🤖 AI-Powered Scheme Assistant
+* Provide welfare information in multiple Indian languages.
+* Help users identify schemes they qualify for through a guided eligibility flow.
+* Generate personalized document checklists.
+* Reduce information asymmetry through AI-powered assistance.
+* Support low-bandwidth environments through lightweight architecture.
+* Improve welfare scheme awareness and accessibility.
 
-* Conversational chatbot interface
+---
+
+## Core Features
+
+### 🤖 AI Welfare Assistant
+
+* Conversational AI chatbot powered by Gemini
 * Context-aware scheme recommendations
-* Multilingual responses
-* Welfare-focused knowledge retrieval
+* Retrieval-Augmented Generation (RAG)
+* Grounded responses using verified welfare scheme data
+* Hallucination reduction through source-based retrieval
 
-### 📋 Eligibility Checker
+### 📋 Smart Eligibility Checker
 
-* Guided questionnaire
+* 4–6 question guided assessment
 * Personalized scheme matching
 * Priority-based recommendations
-* Benefit estimation
+* Eligibility confidence scoring
 
-### 🔎 Scheme Explorer
+### 📄 Document Checklist Generator
 
-* Search welfare schemes
-* Filter by category and state
-* View eligibility requirements
-* Access official resources
+* Scheme-specific document requirements
+* Downloadable checklist generation
+* Application readiness guidance
 
 ### 🌍 Multilingual Support
+
+Supported Languages:
 
 * English
 * Hindi
 * Marathi
 * Bengali
-* Easily extensible to additional Indian languages
+
+Architecture supports future expansion to additional regional languages.
+
+### 🔎 Welfare Scheme Explorer
+
+Users can:
+
+* Browse welfare schemes
+* Search by category
+* Filter by eligibility criteria
+* Access scheme summaries
+* View application requirements
 
 ### 📊 Impact Dashboard
 
-* User analytics
-* Scheme popularity insights
-* Awareness impact estimation
-* Potential benefit projections
-
-### 📄 Document Checklist Generator
-
-* Scheme-specific document requirements
-* Downloadable checklists
-* Application preparation assistance
+* Scheme popularity metrics
+* User engagement analytics
+* Estimated awareness impact
+* Potential beneficiary projections
 
 ---
 
-## 🏗️ System Architecture
+## Target User Personas
 
-Frontend (React + Vite)
+### Farmer
 
-⬇
+Discovers agricultural welfare schemes such as:
 
-Backend API (Node.js + Express)
+* PM-KISAN
+* PM Fasal Bima Yojana
+* Kisan Credit Card
 
-⬇
+### Gig Worker
 
-Prisma ORM
+Finds social security and financial inclusion schemes such as:
 
-⬇
+* e-Shram
+* PMSBY
+* PMJJBY
 
-PostgreSQL Database
+### Woman Head of Household
 
-⬇
+Receives recommendations for:
 
-AI Recommendation & RAG Engine
+* Ujjwala Yojana
+* Sukanya Samriddhi Yojana
+* PM Awas Yojana
 
-⬇
+---
+
+## AI Architecture
+
+User Query
+
+↓
+
+Multilingual Processing Layer
+
+↓
+
+Eligibility Assessment Engine
+
+↓
+
+RAG Retrieval Layer
+
+↓
+
+Government Scheme Knowledge Base
+
+↓
 
 Gemini API
 
+↓
+
+Personalized Response Generation
+
 ---
 
-## 🛠️ Tech Stack
+## Technology Stack
 
 ### Frontend
 
 * React 19
 * Vite
 * TypeScript
-* React Router
-* React Query
 * Tailwind CSS
+* React Query
 * Recharts
 
 ### Backend
 
 * Node.js
 * Express.js
-* TypeScript
 * Prisma ORM
 * JWT Authentication
-* Zod Validation
 
 ### Database
 
 * PostgreSQL
-* Prisma
 
-### AI & Intelligence
+### AI & NLP
 
 * Gemini API
 * Retrieval-Augmented Generation (RAG)
-* Multilingual Response Generation
-
-### DevOps
-
-* Docker
-* Docker Compose
-* Nginx
-* GitHub
-
----
-
-## 📁 Project Structure
-
-```text
-frontend/     React application
-backend/      Express API server
-prisma/       Database schema and migrations
-docker/       Docker configuration
-docs/         Project documentation
-tests/        Automated testing
-public/       Static assets
-scripts/      Utility scripts
-```
-
----
-
-## 🚀 Quick Start
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/PrakharGola/Scheme-Sathi-Project.git
-cd Scheme-Sathi-Project
-```
-
-### 2. Install Dependencies
-
-```bash
-npm run install:all
-```
-
-### 3. Configure Environment
-
-Create:
-
-```bash
-backend/.env
-```
-
-Example:
-
-```env
-DATABASE_URL=postgres://schemesathi:schemesathi@localhost:5432/schemesathi
-JWT_SECRET=your-secret-key
-CORS_ORIGIN=http://localhost:5173
-GEMINI_API_KEY=your-gemini-api-key
-```
-
-### 4. Start PostgreSQL
-
-Using Docker:
-
-```bash
-npm run docker:up
-```
-
-Or start PostgreSQL locally.
-
-### 5. Generate Prisma Client
-
-```bash
-npm run prisma:generate
-```
-
-### 6. Run Database Migrations
-
-```bash
-npm run prisma:migrate
-```
-
-### 7. Seed Sample Data
-
-```bash
-npm run seed
-```
-
-### 8. Start Development Server
-
-```bash
-npm run dev
-```
-
----
-
-## 🌐 Application URLs
-
-Frontend:
-
-```text
-http://localhost:5173
-```
-
-Backend:
-
-```text
-http://localhost:4000
-```
-
-Health Check:
-
-```text
-http://localhost:4000/api/health
-```
-
----
-
-## 📈 Core Modules
-
-* Authentication & User Management
-* Scheme Management System
+* Multilingual NLP Pipeline
 * Eligibility Recommendation Engine
-* AI Chat Assistant
-* Analytics Dashboard
-* Impact Projection Module
-* Multilingual Translation Layer
-* Document Checklist Generator
 
 ---
 
-## 🔒 Security Features
+## Social Impact
 
-* JWT Authentication
-* Password Hashing (bcrypt)
-* Input Validation
-* API Rate Limiting
-* Helmet Security Middleware
-* Secure CORS Configuration
-* Role-Based Access Control
+SchemeSathi aims to increase welfare scheme awareness and improve access to government benefits by simplifying eligibility discovery and application preparation.
+
+Potential outcomes include:
+
+* Increased welfare enrollment
+* Reduced information barriers
+* Better scheme accessibility in regional languages
+* Improved inclusion for rural and underserved communities
 
 ---
 
-## 🎯 Future Roadmap
+## Future Roadmap
 
 * WhatsApp Integration
-* Voice-Based Assistant
-* IVR Support
-* OCR Document Verification
-* Mobile Application
-* Government API Integrations
+* SMS-Based Access
+* IVR Voice Assistant
+* OCR-Based Document Verification
 * Regional Language Expansion
+* Government Portal Integration
+* Voice-First Rural Access
 
 ---
 
-## 👨‍💻 Team
+## Team
 
-Developed as part of the NSS Open Projects 2026 initiative.
+### Project Leads
 
-Project Lead:
-**Prakhar Gola**
-**Prateek Kumar Patel**
+* Prakhar Gola
+* Prateek Kumar Patel
 
----
-
-## 📄 License
-
-This project is developed for educational, research, and social-impact purposes.
-
----
-
-## ❤️ Vision
-
-Empowering every citizen with easy access to government welfare benefits through AI, multilingual communication, and inclusive digital technology.
+Developed as part of NSS Open Projects 2026 under the AI & Intelligent Solutions Track.
